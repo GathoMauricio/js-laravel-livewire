@@ -17,6 +17,8 @@ new class extends Component
         'assign-products',
         'department-lookup',
         'admin.user-manager',
+        // Allow the dashboard to mount the AI chat through its dynamic component.
+        'ai-chat-assistant',
     ];
 
     public function setPanel(string $panel): void
@@ -83,6 +85,8 @@ new class extends Component
             ['component' => 'assign-products', 'label' => 'Asignar productos'],
             ['component' => 'department-lookup', 'label' => 'Consulta por clave'],
             ['component' => 'admin.user-manager', 'label' => 'Usuarios'],
+            {{-- This menu entry activates the allow-listed Livewire chat component. --}}
+            ['component' => 'ai-chat-assistant', 'label' => 'Asistente IA'],
         ] as $panel)
             <button
                 type="button"

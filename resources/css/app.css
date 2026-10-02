@@ -325,6 +325,224 @@ body {
     font-size: 13px;
 }
 
+/* Bounds and frames the chat without nesting decorative cards. */
+.ai-chat-widget {
+    max-width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 7px;
+    background: #fff;
+}
+
+/* Arranges identity, description, and availability status in one row. */
+.ai-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--bs-border-color);
+    background: #fbfcfa;
+}
+
+/* Gives the assistant mark a fixed size so it cannot shift the header. */
+.ai-avatar {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    place-items: center;
+    border-radius: 6px;
+    background: var(--inventory-forest);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Keeps the assistant title compact within the chat header. */
+.ai-chat-header h2 {
+    margin: 3px 0 2px;
+    color: var(--inventory-forest);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+/* Styles the supporting description below the assistant title. */
+.ai-chat-header p {
+    margin: 0;
+    color: var(--inventory-muted);
+    font-size: 13px;
+}
+
+/* Pushes availability to the far edge while retaining a clear text label. */
+.ai-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: auto;
+    color: var(--inventory-muted);
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Provides a keyboard-focusable, bounded scroll area for conversation history. */
+.ai-chat-messages {
+    display: flex;
+    min-height: 280px;
+    max-height: min(52vh, 480px);
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    padding: 20px;
+    overscroll-behavior: contain;
+}
+
+/* Centers the example prompt when the conversation has no messages. */
+.ai-chat-welcome {
+    align-self: center;
+    max-width: 450px;
+    margin: auto;
+    padding: 16px;
+    color: var(--inventory-muted);
+    text-align: center;
+}
+
+/* Improves readability of the welcome examples. */
+.ai-chat-welcome p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Makes each message use the full conversation width for alignment. */
+.ai-message-row {
+    display: flex;
+    width: 100%;
+}
+
+/* Sends user messages to the right side of the conversation. */
+.ai-message-row.is-user {
+    justify-content: flex-end;
+}
+
+/* Gives assistant messages a bounded, readable bubble. */
+.ai-message-bubble {
+    width: fit-content;
+    max-width: min(82%, 680px);
+    padding: 11px 14px;
+    border: 1px solid #e2e9e3;
+    border-radius: 7px;
+    background: #f5f8f5;
+}
+
+/* Uses the primary color to distinguish user-authored messages. */
+.ai-message-row.is-user .ai-message-bubble {
+    border-color: var(--inventory-leaf);
+    background: var(--inventory-leaf);
+    color: #fff;
+}
+
+/* Labels who authored each message without competing with its content. */
+.ai-message-author {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--inventory-muted);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* Maintains contrast for the author label on the primary bubble. */
+.ai-message-row.is-user .ai-message-author {
+    color: rgb(255 255 255 / 78%);
+}
+
+/* Allows formatted model responses to wrap long values safely. */
+.ai-message-content {
+    overflow-wrap: anywhere;
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+/* Removes trailing whitespace below the final paragraph or table. */
+.ai-message-content > :last-child {
+    margin-bottom: 0;
+}
+
+/* Keeps paragraphs and lists in Markdown responses visually compact. */
+.ai-message-content p,
+/* Indents rendered Markdown lists inside the message bubble. */
+.ai-message-content ul,
+.ai-message-content ol {
+    margin-bottom: 0.65rem;
+}
+
+.ai-message-content ul,
+.ai-message-content ol {
+    padding-left: 20px;
+}
+
+/* Makes wide Markdown tables horizontally scrollable on narrow screens. */
+.ai-message-content table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+}
+
+/* Separates Markdown table cells and aligns their text consistently. */
+.ai-message-content th,
+.ai-message-content td {
+    padding: 5px 8px;
+    border-bottom: 1px solid var(--bs-border-color);
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Highlights column headings in formatted assistant tables. */
+.ai-message-content th {
+    color: var(--inventory-forest);
+    font-weight: 700;
+}
+
+/* Presents the in-flight indicator beside the conversation messages. */
+.ai-chat-pending {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    align-self: flex-start;
+    padding: 8px 10px;
+    color: var(--inventory-muted);
+    font-size: 13px;
+}
+
+/* Separates the message editor from the scrollable conversation area. */
+.ai-chat-composer {
+    padding: 14px 18px 16px;
+    border-top: 1px solid var(--bs-border-color);
+    background: #fbfcfa;
+}
+
+/* Keeps a useful editor height while allowing the user to resize it. */
+.ai-chat-composer textarea {
+    min-height: 64px;
+    resize: vertical;
+}
+
+/* Aligns the stock-safety note with the submit control. */
+.ai-composer-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin-top: 10px;
+}
+
+/* Styles the short usage note without distracting from the composer. */
+.ai-composer-footer > span {
+    color: var(--inventory-muted);
+    font-size: 12px;
+}
+
 @keyframes panel-enter {
     from { opacity: 0; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
@@ -378,6 +596,48 @@ body {
 
     .panel-heading {
         flex-direction: column;
+    }
+
+    /* Reflows the chat heading for narrow mobile viewports. */
+    .ai-chat-header {
+        align-items: flex-start;
+        padding: 15px;
+    }
+
+    /* Prevents the header description from crowding status on mobile. */
+    .ai-chat-header p {
+        max-width: 220px;
+    }
+
+    /* Keeps only the status dot on mobile to conserve header width. */
+    .ai-status {
+        font-size: 0;
+    }
+
+    /* Reduces the conversation area's minimum height on mobile. */
+    .ai-chat-messages {
+        min-height: 240px;
+        padding: 14px;
+    }
+
+    /* Lets message bubbles use more of the available mobile width. */
+    .ai-message-bubble {
+        max-width: 92%;
+    }
+
+    /* Tightens composer padding for small screens. */
+    .ai-chat-composer {
+        padding: 12px;
+    }
+
+    /* Keeps the note and send button readable when stacked in mobile layout. */
+    .ai-composer-footer {
+        align-items: flex-start;
+    }
+
+    /* Limits note width so it does not push the submit control off-screen. */
+    .ai-composer-footer > span {
+        max-width: 58%;
     }
 }
 

@@ -35,4 +35,11 @@ return [
         ],
     ],
 
+    // Keep provider settings here so runtime code reads cached Laravel config.
+    'groq' => [
+        'key' => env('GROQ_API_KEY'), // Secret token read from .env; never expose it to the browser.
+        'model' => env('GROQ_MODEL', 'openai/gpt-oss-120b'), // Default Groq model with tool-calling support.
+        'chat_completions_url' => env('GROQ_CHAT_COMPLETIONS_URL', 'https://api.groq.com/openai/v1/chat/completions'), // OpenAI-compatible chat endpoint hosted by Groq.
+    ],
+
 ];

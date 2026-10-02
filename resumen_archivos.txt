@@ -16,6 +16,9 @@ Archivos nuevos
 - resources/views/components/⚡assign-products.blade.php: asigna cantidades y descuenta stock dentro de una transaccion.
 - resources/views/components/⚡department-lookup.blade.php: consulta productos asignados mediante la clave del departamento.
 - resources/views/components/admin/⚡user-manager.blade.php: crea y elimina usuarios con validacion y formulario Livewire.
+- app/Services/InventoryAgentService.php: define las tools check_stock, adjust_stock y assign_product_to_department; valida argumentos, consulta existencias, crea departamentos y guarda asignaciones con descuento de stock dentro de transacciones.
+- app/Livewire/AiChatAssistant.php: conserva mensajes, llama al modelo de Groq, procesa rondas assistant/tool, muestra errores y emite inventory-updated después de cambios correctos.
+- resources/views/livewire/ai-chat-assistant.blade.php: widget Livewire con historial, Markdown saneado, estado de carga y formulario de chat responsivo.
 - resources/views/layouts/app.blade.php: layout compartido con Bootstrap, Vite y Livewire.
 - resources/views/inventory.blade.php: vista de entrada que monta el dashboard.
 - tests/Feature/InventoryWorkflowTest.php: prueba altas, claves unicas, busqueda, asignaciones y consulta.
@@ -29,6 +32,10 @@ Archivos existentes modificados
 - composer.json y composer.lock: agregan Livewire y Laravel Boost.
 - package.json: agrega Bootstrap y Popper.
 - resources/css/app.css y resources/js/app.js: cargan Bootstrap y estilos del inventario.
+- config/services.php y .env.example: leen GROQ_API_KEY y definen modelo y endpoint compatibles con Groq.
+- resources/css/app.css: define el aspecto de los mensajes, la cabecera, el área scrollable, estados de espera y vista móvil del chat.
+- resources/views/components/⚡inventory-dashboard.blade.php: incluye el panel Asistente IA en la lista permitida de componentes dinámicos.
+- tests/Feature/InventoryWorkflowTest.php: verifica tools, llamadas simuladas a Groq, asignación de Dirección, actualización del pivot y rollback cuando falta inventario.
 - routes/web.php: sirve el dashboard como pagina principal.
 - database/seeders/DatabaseSeeder.php: crea un usuario de prueba y asignaciones de muestra.
 - tests/Feature/ExampleTest.php: prepara la base antes de probar la pagina principal.

@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Department;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
 use Tests\TestCase;
@@ -21,6 +22,35 @@ class InventoryWorkflowTest extends TestCase
             ->assertSee('Control de inventario')
             ->assertSee('Registrar producto')
             ->assertSee('Consulta por clave');
+    }
+
+    public function test_dashboard_can_open_the_user_management_panel(): void
+    {
+        Livewire::test('inventory-dashboard')
+            ->call('setPanel', 'admin.user-manager')
+            ->assertSee('Usuarios')
+            ->assertSee('Crear usuario')
+            ->assertSee('Correo electrónico');
+    }
+
+    public function test_user_management_panel_can_create_and_delete_a_user(): void
+    {
+        Livewire::test('admin.user-manager')
+            ->set('name', 'Patricia Gómez')
+            ->set('email', 'patricia@example.com')
+            ->set('password', 'password-seguro')
+            ->call('saveUser')
+            ->assertHasNoErrors()
+            ->assertSee('Usuario creado correctamente.');
+
+        $user = User::query()->where('email', 'patricia@example.com')->firstOrFail();
+
+        Livewire::test('admin.user-manager')
+            ->call('deleteUser', $user->id)
+            ->assertHasNoErrors()
+            ->assertSee('Usuario eliminado correctamente.');
+
+        $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
 
     public function test_product_can_be_registered_and_searched(): void

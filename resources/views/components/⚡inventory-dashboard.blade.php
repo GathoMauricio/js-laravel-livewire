@@ -16,6 +16,7 @@ new class extends Component
         'manage-departments',
         'assign-products',
         'department-lookup',
+        'admin.user-manager',
     ];
 
     public function setPanel(string $panel): void
@@ -81,6 +82,7 @@ new class extends Component
             ['component' => 'manage-departments', 'label' => 'Departamentos'],
             ['component' => 'assign-products', 'label' => 'Asignar productos'],
             ['component' => 'department-lookup', 'label' => 'Consulta por clave'],
+            ['component' => 'admin.user-manager', 'label' => 'Usuarios'],
         ] as $panel)
             <button
                 type="button"

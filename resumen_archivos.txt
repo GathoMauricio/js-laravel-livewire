@@ -15,6 +15,7 @@ Archivos nuevos
 - resources/views/components/⚡manage-departments.blade.php: registra y lista departamentos.
 - resources/views/components/⚡assign-products.blade.php: asigna cantidades y descuenta stock dentro de una transaccion.
 - resources/views/components/⚡department-lookup.blade.php: consulta productos asignados mediante la clave del departamento.
+- resources/views/components/admin/⚡user-manager.blade.php: crea y elimina usuarios con validacion y formulario Livewire.
 - resources/views/layouts/app.blade.php: layout compartido con Bootstrap, Vite y Livewire.
 - resources/views/inventory.blade.php: vista de entrada que monta el dashboard.
 - tests/Feature/InventoryWorkflowTest.php: prueba altas, claves unicas, busqueda, asignaciones y consulta.

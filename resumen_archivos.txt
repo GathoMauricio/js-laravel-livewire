@@ -1,0 +1,34 @@
+Resumen de archivos del sistema de inventario
+
+Archivos nuevos
+- app/Models/Product.php: modelo Eloquent de productos, existencias y relacion con departamentos.
+- app/Models/Department.php: modelo Eloquent de departamentos y sus productos asignados.
+- database/migrations/2026_10_02_001519_create_products_table.php: crea productos con clave unica y existencia.
+- database/migrations/2026_10_02_001520_create_departments_table.php: crea departamentos con clave unica.
+- database/migrations/2026_10_02_001521_create_department_product_table.php: guarda cantidades asignadas y evita pares duplicados.
+- database/factories/ProductFactory.php: genera productos de prueba con Faker.
+- database/factories/DepartmentFactory.php: genera departamentos de prueba con Faker.
+- database/seeders/ProductSeeder.php: agrega productos de demostracion.
+- database/seeders/DepartmentSeeder.php: agrega departamentos de demostracion.
+- resources/views/components/⚡inventory-dashboard.blade.php: muestra resumen y cambia entre paneles Livewire dinamicos.
+- resources/views/components/⚡manage-products.blade.php: registra y consulta productos y existencias.
+- resources/views/components/⚡manage-departments.blade.php: registra y lista departamentos.
+- resources/views/components/⚡assign-products.blade.php: asigna cantidades y descuenta stock dentro de una transaccion.
+- resources/views/components/⚡department-lookup.blade.php: consulta productos asignados mediante la clave del departamento.
+- resources/views/layouts/app.blade.php: layout compartido con Bootstrap, Vite y Livewire.
+- resources/views/inventory.blade.php: vista de entrada que monta el dashboard.
+- tests/Feature/InventoryWorkflowTest.php: prueba altas, claves unicas, busqueda, asignaciones y consulta.
+- package-lock.json: fija las versiones resueltas de paquetes JavaScript.
+- boost.json: configuracion generada por Laravel Boost.
+- .env: configuracion local de Laravel y clave de aplicacion; no debe publicarse.
+- database/database.sqlite: base SQLite local con migraciones y datos de demostracion.
+- resumen_archivos.txt: este indice de archivos y responsabilidades.
+
+Archivos existentes modificados
+- composer.json y composer.lock: agregan Livewire y Laravel Boost.
+- package.json: agrega Bootstrap y Popper.
+- resources/css/app.css y resources/js/app.js: cargan Bootstrap y estilos del inventario.
+- routes/web.php: sirve el dashboard como pagina principal.
+- database/seeders/DatabaseSeeder.php: crea un usuario de prueba y asignaciones de muestra.
+- tests/Feature/ExampleTest.php: prepara la base antes de probar la pagina principal.
+- CLAUDE.md: contiene las guias del proyecto generadas por Laravel Boost.

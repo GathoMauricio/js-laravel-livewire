@@ -1,0 +1,40 @@
+Instrucciones:
+
+Diseña e implementa un modelo de base de datos que te permita gestionar el inventario de una 
+institución considerando que:
+
+-   Cada producto tiene una clave y que esta no debe repetirse, ademasdeberás registrar el
+    nombre del producto y la cantidad en existencia.
+-   Podrás asignarle productos a un departamento, afectando la existencia de dichos productos
+    asignados.
+-   De los datos del departamento se sabe que tienen una clave única y un nombre.
+
+Desarrolla una aplicación web en Laravel con Livewire que permita:
+
+-   Registrar Productos.
+-   Registrar deparamentos.
+-   Asignar productos a un departamento (disminuyendo la cantidad de los productos 
+    asignados en el inventario)
+-   Consultar productos.
+-   Consultar los datos de un departamento con sus productos asignados dada la clave de un
+    departamento.
+
+El desarrollo debe demostrar un buen manejo de Livewire incluyendo:
+
+-   Creacion y uso de componentes dinámicos.
+-   Declaración y manipulación de propiedades en los componentes.
+-   Uso de formularios interactivos para la gestión de datos.
+-   Manejo de acciones dentro del componente para actualizar el estado de la aplicación.
+
+Si decides complementar la interfaz con alguna funcionalidad de Alpine.js para mejorar la
+experiencia del usuario, será mucho mejor.
+
+Configuración:
+-   El tipo de base de datos que se itulizará será sqLite para mayor practicidad.
+-   Se deberán crear las migraciones correspondientes para crear las tablas en la base de datos.
+-   Se deberán crear los seeders correspondientes para crear usuarios, productos y departamentos
+    de prueba usando las librerias propias de laravel para generar información de prueba.
+-   Para la parte visual se usará Bootstrap en su última versión.
+-   Cada nuevo archivo creado debe ir comentado para saber como funciona cada parte del desarrollo.
+-   Se creará un archivo .txt con un resumen de cada archivo nuevo que se creó explicando brevemente
+-   su función en el desarrollo.
